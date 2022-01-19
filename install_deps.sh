@@ -75,7 +75,7 @@ else
     wget "https://exiftool.org/Image-ExifTool-12.39.tar.gz"
     gzip -dc Image-ExifTool-12.39.tar.gz | tar -xf -
     cd Image-ExifTool-12.39
-    sudo yum install perl
+    sudo yum install -y perl
     perl Makefile.PL
     make test
     sudo make install
@@ -84,7 +84,7 @@ else
     echo ""
     echo "Installing YARA"
     echo "---------------"
-    yum install epel-release autoconf libtool openssl-devel file-devel jansson jansson-devel
+    sudo yum install -y epel-release autoconf libtool openssl-devel file-devel jansson jansson-devel
     wget "https://github.com/VirusTotal/yara/archive/refs/tags/v4.1.3.tar.gz"
     tar -zxf v4.1.3.tar.gz
     cd yara-4.1.3
