@@ -129,7 +129,7 @@ fi
 
 
 echo "---------------------------"
-echo "Writing to confg.txt, use the file in d20 with the '-c' flag"
+echo "Writing to config.txt, use the file in d20 with the '-c' flag"
 echo "---------------------------"
 cat > config.txt <<- EOF
 d20:
@@ -166,7 +166,7 @@ d20:
 #     YARA:
 #         disable: false  # bool
 #         rules: []  # list
-Players:
+# Players:
 #     .NET Metadata Extractor:
 #         disable: false  # bool
 #     Decompress:
