@@ -139,7 +139,7 @@ d20:
     extra-screens: $PWD/Screens
     extra-actions: $PWD/Actions
     extra-backstories: $PWD/Backstories
-Actions:
+# Actions:
 #     un7z:
 #         password: None  # str
 #     unrar:
@@ -149,12 +149,12 @@ Actions:
 #     virustotal:
 #         uri: None  # str
 #         api_key: None  # str
-Backstories:
+# Backstories:
 #     BulkAnalyze:
 #         test: false  # bool
 #     VTDownload:
 #         test: false  # bool
-NPCS:
+# NPCS:
 #     HashNPC:
 #     MimeTypeNPC:
 #     Strings:
@@ -268,7 +268,7 @@ Players:
 #         disable: false  # bool
 #     VBAExtract:
 #         disable: false  # bool
-Screens:
+# Screens:
 #     decoders:
 #         exclude: []  # list
 #         remove_object_data: false  # bool
