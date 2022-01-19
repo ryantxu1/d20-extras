@@ -75,7 +75,7 @@ else
     wget "https://exiftool.org/Image-ExifTool-12.39.tar.gz"
     gzip -dc Image-ExifTool-12.39.tar.gz | tar -xf -
     cd Image-ExifTool-12.39
-    sudo yum install -y perl
+    sudo yum install -y perl-devel
     perl Makefile.PL
     make test
     sudo make install
@@ -114,6 +114,7 @@ else
     cd telfhash
     python3 setup.py build
     python3 setup.py install
+    cd ..
     cd ..
 
     echo ""
