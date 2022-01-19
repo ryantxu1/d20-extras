@@ -1,9 +1,4 @@
 #!/bin/bash
-# echo "Setting up environment"
-# echo "----------------------"
-
-# virtualenv venv
-# source venv/bin/activate
 
 echo "Detecting OS"
 dist=`lsb_release -si`
