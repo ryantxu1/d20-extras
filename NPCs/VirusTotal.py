@@ -62,6 +62,10 @@ class VirusTotalNPC(NPCTemplate):
             object_id=self.object_id,
             session=session
         )
+
+        if vt.uri or vt.api_key is None:
+            raise RuntimeError("No URI or API Key given for VirusTotal, aborting...\n")
+
         # self.console.print(vt._test_lookup())
         self._add_fact(vt.report_lookup())
         self._add_fact(vt.behaviour_lookup())
