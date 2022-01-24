@@ -45,6 +45,10 @@ class VirusTotalNPC(NPCTemplate):
         super().__init__(**kwargs)
         self.disable = self.options.get("disable", False)
 
+        vt = VirusTotal()
+        if vt.uri or vt.api_key is None:
+            raise RuntimeError("No URI or API Key given for VirusTotal\n")
+
     def handleData(self, **kwargs):
         if self.disable:
             return
@@ -62,9 +66,6 @@ class VirusTotalNPC(NPCTemplate):
             object_id=self.object_id,
             session=session
         )
-
-        if vt.uri or vt.api_key is None:
-            raise RuntimeError("No URI or API Key given for VirusTotal, aborting...\n")
 
         # self.console.print(vt._test_lookup())
         self._add_fact(vt.report_lookup())
