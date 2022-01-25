@@ -35,14 +35,14 @@ if [ $OPERATINGSYS == "Ubuntu" ]
 then
     sudo apt update
     sudo apt upgrade
-    sudo apt-get install build-essential libffi-dev python3 python3-dev python3-pip libfuzzy-dev wget
+    sudo apt-get install build-essential libffi-dev python3 python3-dev python3-pip libfuzzy-dev wget gcc
 elif [ $OPERATINGSYS == "CentOS" ]
 then
     sudo yum update
     sudo yum upgrade
     sudo yum groupinstall "Development Tools"
     sudo yum install epel-release
-    sudo yum install libffi-devel python-devel python-pip ssdeep-devel ssdeep-libs wget openssl-devel bzip2-devel zlib-devel xz-devel
+    sudo yum install gcc openssl-devel bzip2-devel libffi-devel wget libffi-devel python-devel python-pip ssdeep-devel ssdeep-libs zlib-devel xz-devel
 fi
     
 echo ""
@@ -71,10 +71,10 @@ echo "Installing YARA"
 echo "---------------"
 if [ $OPERATINGSYS == "Ubuntu" ]
 then
-    sudo apt-get install automake libtool make gcc pkg-config
+    sudo apt-get install automake libtool make pkg-config
 elif [ $OPERATINGSYS == "CentOS" ]
 then
-    sudo yum install autoconf libtool openssl-devel file-devel jansson jansson-devel
+    sudo yum install autoconf libtool file-devel jansson jansson-devel
 fi
 wget "https://github.com/VirusTotal/yara/archive/refs/tags/v4.1.3.tar.gz"
 tar -zxf v4.1.3.tar.gz
@@ -128,62 +128,3 @@ then
     sudo yum install libarchive-devel
 fi
 pip3 install -r requirements.txt
-
-
-# echo ""
-# echo "Installing exiftool"
-# echo "-------------------"
-# mkdir deps
-# cd deps
-# wget "https://exiftool.org/Image-ExifTool-12.39.tar.gz"
-# gzip -dc Image-ExifTool-12.39.tar.gz | tar -xf -
-# cd Image-ExifTool-12.39
-# sudo yum install -y perl-devel
-# perl Makefile.PL
-# make test
-# sudo make install
-# cd ..
-
-# echo ""
-# echo "Installing YARA"
-# echo "---------------"
-# sudo yum install -y epel-release autoconf libtool openssl-devel file-devel jansson jansson-devel
-# wget "https://github.com/VirusTotal/yara/archive/refs/tags/v4.1.3.tar.gz"
-# tar -zxf v4.1.3.tar.gz
-# cd yara-4.1.3
-# ./bootstrap.sh
-# ./configure
-# make
-# sudo make install
-# cd ..
-# pip3 install yara-python
-
-# echo ""
-# echo "Installing 7ZIP and UPX"
-# echo "-----------------------"
-# sudo yum install -y p7zip p7zip-plugins
-# sudo yum install -y upx
-
-
-# echo ""
-# echo "Installing telfhash"
-# echo "-----------------------"
-# wget https://github.com/trendmicro/tlsh/archive/master.zip -O master.zip
-# unzip master.zip
-# cd tlsh-master
-# make.sh
-# cd ..
-# git clone https://github.com/trendmicro/telfhash.git
-# cd telfhash
-# python3 setup.py build
-# python3 setup.py install
-# cd ..
-# cd ..
-
-# echo ""
-# echo "Installing python packages"
-# echo "--------------------------"
-# pip3 install wheel
-# pip3 install cffi
-# sudo yum install -y libarchive-devel
-# pip3 install -r requirements.txt 
