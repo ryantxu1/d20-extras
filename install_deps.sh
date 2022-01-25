@@ -9,7 +9,7 @@ then
     OPERATINGSYS="Ubuntu"
 fi
 
-if [ "$(cat /etc/centos-release)" == "CentOS Linux release 7"* ]
+if [[ "$(cat /etc/centos-release)" == *"CentOS Linux release 7"* ]]
 then 
     echo "CENTOS DETECTED"
     OPERATINGSYS="CentOS"
@@ -22,10 +22,8 @@ then
 fi
 
 echo "Detecting D20"
-if [ "$(d20)" == "File/BackStory Facts or Save State required" ]
+if [ "$(d20)" != "File/BackStory Facts or Save State required" ]
 then
-    pass
-else
     echo "Please install D20 beforehand"
     exit 1
 fi
@@ -50,7 +48,7 @@ fi
 echo ""
 echo "Installing exiftool"
 echo "-------------------"
-D20DIR=$(PWD)
+D20DIR=$PWD
 TEMP="$(mktemp -d)"
 cd $TEMP
 wget "https://exiftool.org/Image-ExifTool-12.39.tar.gz"
