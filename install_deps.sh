@@ -16,6 +16,7 @@ then
 fi
 
 if [ $OPERATINGSYS == "" ]
+then
     echo "Did not detect Ubuntu or CentOS"
     exit 1
 fi
