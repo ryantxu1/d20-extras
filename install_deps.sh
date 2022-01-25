@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Python3 >=3.7 and D20 must be installed beforehand
 echo "Detecting OS"
 OPERATINGSYS=""
 if [ "$(lsb_release -si)" == "Ubuntu" ]
@@ -16,8 +17,8 @@ else
 fi
 
 echo ""
-echo "Installing buildtools and ssdeep"
-echo "--------------------------------"
+echo "Installing buildtools"
+echo "---------------------"
 if [ $OPERATINGSYS == "Ubuntu" ]
 then
     sudo apt update
@@ -29,10 +30,8 @@ then
     sudo yum upgrade
     sudo yum groupinstall "Development Tools"
     sudo yum install epel-release
-    sudo yum install libffi-devel python-devel python-pip ssdeep-devel ssdeep-libs wget
+    sudo yum install libffi-devel python-devel python-pip ssdeep-devel ssdeep-libs wget openssl-devel bzip2-devel zlib-devel xz-devel
 fi
-sudo pip install ssdeep
-
     
 echo ""
 echo "Installing exiftool"
