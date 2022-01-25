@@ -7,11 +7,15 @@ if [ "$(lsb_release -si)" == "Ubuntu" ]
 then
     echo "UBUNTU DETECTED"
     OPERATINGSYS="Ubuntu"
-elif [ "$(cat /etc/centos-release)" == "CentOS Linux release 7"* ]
+fi
+
+if [ "$(cat /etc/centos-release)" == "CentOS Linux release 7"* ]
 then 
     echo "CENTOS DETECTED"
     OPERATINGSYS="CentOS"
-else
+fi
+
+if [ $OPERATINGSYS == "" ]
     echo "Did not detect Ubuntu or CentOS"
     exit 1
 fi
