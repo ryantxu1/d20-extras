@@ -16,6 +16,15 @@ else
     exit 1
 fi
 
+echo "Detecting D20"
+if [ "$(d20)" == "File/BackStory Facts or Save State required" ]
+then
+    pass
+else
+    echo "Please install D20 beforehand"
+    exit 1
+fi
+
 echo ""
 echo "Installing buildtools"
 echo "---------------------"
