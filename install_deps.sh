@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Python3 >=3.7 and D20 must be installed beforehand
+# Script must be run within the d20-extras directory
+
 echo "Detecting OS"
 OPERATINGSYS=""
 if [ "$(lsb_release -si)" == "Ubuntu" ]
@@ -98,8 +100,6 @@ then
     sudo yum install p7zip p7zip-plugins
     sudo yum install upx   
 fi
-
-
 
 echo ""
 echo "Installing telfhash"
